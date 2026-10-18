@@ -16,7 +16,7 @@ ap.add_argument("--guidance", type=float, nargs="+", default=[1, 3, 5, 7, 10])
 ap.add_argument("--steps", type=int, default=50)
 a = ap.parse_args()
 
-pipe = ChitraTiny.from_pretrained("UdgamLabs/Chitra-Tiny")
+pipe = ChitraTiny.from_pretrained("udgamlabs/Chitra-Tiny")
 strip = Image.new("RGB", (256 * len(a.guidance), 280), "white")
 draw = ImageDraw.Draw(strip)
 for i, g in enumerate(a.guidance):

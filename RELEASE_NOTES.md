@@ -1,6 +1,6 @@
 # Chitra Tiny 1.0.0
 
-First public release, 12 October 2026. The weights are on [Hugging Face](https://huggingface.co/UdgamLabs/Chitra-Tiny). This repository adds the code, runnable examples, evaluation details, a visual walkthrough and checksums.
+First public release, 12 October 2026. The weights are on [Hugging Face](https://huggingface.co/udgamlabs/Chitra-Tiny). This repository adds the code, runnable examples, evaluation details, a visual walkthrough and checksums.
 
 - **One model:** a 212M-parameter diffusion transformer (16 layers, width 768) for 256×256 English text-to-image, trained from scratch with rectified flow on about 4.7 million public-domain and CC0 images.
 - **Uses two frozen open models**, downloaded on first use: google/flan-t5-base (text encoder, Apache-2.0) and stabilityai/sd-vae-ft-mse (image decoder, MIT).

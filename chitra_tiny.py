@@ -1,7 +1,7 @@
-"""Chitra Tiny: a 212M-parameter text-to-image model (256x256) by UdgamLabs. Standalone inference code (Apache-2.0).
+"""Chitra Tiny: a 212M-parameter text-to-image model (256x256) by Udgam Labs. Standalone inference code (Apache-2.0).
 
     from chitra_tiny import ChitraTiny
-    pipe = ChitraTiny.from_pretrained("UdgamLabs/Chitra-Tiny")       # or a local folder
+    pipe = ChitraTiny.from_pretrained("udgamlabs/Chitra-Tiny")       # or a local folder
     images = pipe("a lighthouse on a rocky coast at sunset", n=4)   # list of PIL images
 
 Model: diffusion transformer (patch 2 on 32x32x4 latents) trained from scratch with rectified flow. Text encoder:
@@ -119,7 +119,7 @@ class ChitraTiny:
         self.vae = AutoencoderKL.from_pretrained(config["vae"]).to(device).eval()
 
     @classmethod
-    def from_pretrained(cls, path_or_repo="UdgamLabs/Chitra-Tiny", device=None):
+    def from_pretrained(cls, path_or_repo="udgamlabs/Chitra-Tiny", device=None):
         from safetensors.torch import load_file
         if not os.path.isdir(path_or_repo):
             from huggingface_hub import snapshot_download
@@ -160,7 +160,7 @@ if __name__ == "__main__":
     ap = argparse.ArgumentParser(description="Generate images with Chitra Tiny")
     ap.add_argument("prompt"); ap.add_argument("--n", type=int, default=4); ap.add_argument("--guidance", type=float)
     ap.add_argument("--steps", type=int); ap.add_argument("--seed", type=int, default=0)
-    ap.add_argument("--model", default="UdgamLabs/Chitra-Tiny"); ap.add_argument("--out", default="chitra")
+    ap.add_argument("--model", default="udgamlabs/Chitra-Tiny"); ap.add_argument("--out", default="chitra")
     a = ap.parse_args()
     pipe = ChitraTiny.from_pretrained(a.model)
     for i, im in enumerate(pipe(a.prompt, n=a.n, guidance=a.guidance, steps=a.steps, seed=a.seed)):

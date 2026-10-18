@@ -33,7 +33,7 @@ def save(im, name, meta, **kw):
 
 if __name__ == "__main__":
     os.makedirs(OUT, exist_ok=True)
-    pipe = ChitraTiny.from_pretrained(os.environ.get("CHITRA_MODEL", "UdgamLabs/Chitra-Tiny"))
+    pipe = ChitraTiny.from_pretrained(os.environ.get("CHITRA_MODEL", "udgamlabs/Chitra-Tiny"))
     meta = []
     for i, p in enumerate(GALLERY):
         save(pipe(p, seed=0)[0], f"gallery_{i:02d}.jpg", meta, section="gallery", prompt=p, seed=0, guidance=7)

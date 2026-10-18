@@ -6,9 +6,10 @@ import time
 import gradio as gr
 
 from chitra_tiny import ChitraTiny
+from gradio_theme import CSS, HEAD, footer, header, theme
 
 HERE = os.path.dirname(os.path.abspath(__file__))
-pipe = ChitraTiny.from_pretrained(HERE if os.path.exists(os.path.join(HERE, "model.safetensors")) else "UdgamLabs/Chitra-Tiny")
+pipe = ChitraTiny.from_pretrained(HERE if os.path.exists(os.path.join(HERE, "model.safetensors")) else "udgamlabs/Chitra-Tiny")
 
 
 def run(prompt, guidance, steps, seed, n, negative):
@@ -17,9 +18,10 @@ def run(prompt, guidance, steps, seed, n, negative):
     return images, f"{int(n)} image(s), {int(steps)} steps, guidance {guidance}, seed {int(seed)}: {time.time() - t0:.1f} s on {pipe.device}"
 
 
-with gr.Blocks(title="Chitra Tiny") as demo:
-    gr.Markdown("## Chitra Tiny\nA 212M-parameter text-to-image model trained from scratch by UdgamLabs. 256×256 images. "
-                "Best at photos, paintings, landscapes, buildings, vehicles and food.")
+with gr.Blocks(title="Chitra Tiny · Udgam Labs") as demo:
+    gr.HTML(header("Chitra Tiny", "Text-to-image model · Trained from scratch",
+                   "A 212M-parameter text-to-image model. 256×256 images. "
+                   "Best at photos, paintings, landscapes, buildings, vehicles and food."))
     with gr.Row():
         with gr.Column():
             prompt = gr.Textbox(label="Prompt", value="a lighthouse on a rocky coast at sunset", lines=2)
@@ -32,7 +34,11 @@ with gr.Blocks(title="Chitra Tiny") as demo:
         with gr.Column():
             gallery = gr.Gallery(label="Results", columns=2, object_fit="contain")
             info = gr.Markdown()
+    gr.HTML(footer('<a href="https://huggingface.co/udgamlabs/Chitra-Tiny">Model card</a> · '
+                   '<a href="https://github.com/udgamlabs/chitra-tiny">GitHub</a>'))
     btn.click(run, [prompt, guidance, steps, seed, n, negative], [gallery, info])
 
 if __name__ == "__main__":
-    demo.queue().launch(server_name="127.0.0.1", server_port=int(os.environ.get("PORT", 7860)))
+    os.chdir(HERE)  # so mark.svg resolves wherever the app is launched from
+    demo.queue().launch(server_name="127.0.0.1", server_port=int(os.environ.get("PORT", 7860)),
+                        theme=theme, css=CSS, head=HEAD, allowed_paths=["mark.svg"])

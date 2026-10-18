@@ -19,7 +19,7 @@ examples/make_walkthrough_images.py; no model, form submission or network reques
   <a class="skip" href="#main">Skip to content</a>
   <div class="release-note">Public release · 12 October 2026 <span aria-hidden="true">/</span> Saved images, not cherry-picked. Measured results. Known limitations.</div>
   <header class="site-header shell">
-    <a class="wordmark" href="https://github.com/UdgamLabs" aria-label="Udgam Labs on GitHub">UDGAM LABS<span>Frontier technology lab</span></a>
+    <a class="wordmark" href="https://github.com/udgamlabs" aria-label="Udgam Labs on GitHub">UDGAM LABS<span>AI research from first principles</span></a>
     <nav aria-label="Main navigation">
       <a href="#gallery">Gallery</a>
       <a href="#how">How it works</a>
@@ -74,7 +74,7 @@ examples/make_walkthrough_images.py; no model, form submission or network reques
         <li><figure><img src="assets/img/gallery_10.jpg" width="256" height="256" loading="lazy" alt="A black steam locomotive beside a platform"><figcaption>a steam locomotive at a railway station</figcaption></figure></li>
         <li><figure><img src="assets/img/gallery_11.jpg" width="256" height="256" loading="lazy" alt="A field of sunflowers"><figcaption>a field of sunflowers on a summer day</figcaption></figure></li>
       </ul>
-      <p class="small muted gallery-method">Saved on 12 October 2026 from the released weights (guidance 7, 50 steps, 256×256), using <a href="https://github.com/UdgamLabs/chitra-tiny/blob/main/examples/make_walkthrough_images.py">make_walkthrough_images.py</a>. Images are shown at their real size of 256×256 pixels, scaled by your browser.</p>
+      <p class="small muted gallery-method">Saved on 12 October 2026 from the released weights (guidance 7, 50 steps, 256×256), using <a href="https://github.com/udgamlabs/chitra-tiny/blob/main/examples/make_walkthrough_images.py">make_walkthrough_images.py</a>. Images are shown at their real size of 256×256 pixels, scaled by your browser.</p>
     </section>
 
     <section id="how" class="app-section" aria-labelledby="how-title">
@@ -160,7 +160,7 @@ examples/make_walkthrough_images.py; no model, form submission or network reques
         </ul>
       </details>
       <p class="benchmark-method">Official GenEval code and prompts, 553 prompts × 4 images, 50 steps. Our harness gave Stable Diffusion 1.5 0.426, against 0.43 published by the GenEval authors. At guidance 4, Chitra Tiny scores 0.190.</p>
-      <a class="text-link" href="https://github.com/UdgamLabs/chitra-tiny/blob/main/docs/EVALUATION.md">Full evaluation and method <span aria-hidden="true">↗</span></a>
+      <a class="text-link" href="https://github.com/udgamlabs/chitra-tiny/blob/main/docs/EVALUATION.md">Full evaluation and method <span aria-hidden="true">↗</span></a>
     </section>
 
     <section id="limits" class="section shell" aria-labelledby="limits-title" style="padding-top:0">
@@ -186,17 +186,17 @@ examples/make_walkthrough_images.py; no model, form submission or network reques
           <h2 id="build-title">Your prompt.<br>Your laptop.</h2>
           <p>Clone the repository, install six Python packages and run one command. The weights download from Hugging Face on first use, with no login.</p>
           <p class="small">Runs on an NVIDIA GPU, Apple silicon or a CPU. Defaults: guidance 7, 50 steps. Use 25 steps to halve the time.</p>
-          <div class="build-links"><a href="https://github.com/UdgamLabs/chitra-tiny#get-started">Quick start <span aria-hidden="true">↗</span></a><a href="https://github.com/UdgamLabs/chitra-tiny/tree/main/examples">Runnable examples <span aria-hidden="true">↗</span></a><a href="https://huggingface.co/UdgamLabs/Chitra-Tiny">Weights &amp; model card <span aria-hidden="true">↗</span></a></div>
+          <div class="build-links"><a href="https://github.com/udgamlabs/chitra-tiny#get-started">Quick start <span aria-hidden="true">↗</span></a><a href="https://github.com/udgamlabs/chitra-tiny/tree/main/examples">Runnable examples <span aria-hidden="true">↗</span></a><a href="https://huggingface.co/udgamlabs/Chitra-Tiny">Weights &amp; model card <span aria-hidden="true">↗</span></a></div>
         </div>
         <div class="code-panel">
           <div class="code-heading"><span>Shell / Python</span></div>
-          <pre tabindex="0" aria-label="Usage example"><code><span class="code-keyword">git</span> clone https://github.com/UdgamLabs/chitra-tiny
+          <pre tabindex="0" aria-label="Usage example"><code><span class="code-keyword">git</span> clone https://github.com/udgamlabs/chitra-tiny
 <span class="code-keyword">cd</span> chitra-tiny &amp;&amp; <span class="code-keyword">pip</span> install -r requirements.txt
 <span class="code-keyword">python</span> chitra_tiny.py <span class="code-string">"a castle on a hill"</span> --n 4
 
 <span class="code-keyword">#</span> or from Python
 <span class="code-keyword">from</span> chitra_tiny <span class="code-keyword">import</span> ChitraTiny
-pipe = ChitraTiny.from_pretrained(<span class="code-string">"UdgamLabs/Chitra-Tiny"</span>)
+pipe = ChitraTiny.from_pretrained(<span class="code-string">"udgamlabs/Chitra-Tiny"</span>)
 pipe(<span class="code-string">"a bridge in autumn"</span>, n=4, seed=0)[0].save(<span class="code-string">"bridge.png"</span>)
 
 <span class="code-keyword">#</span> local web playground: python app.py</code></pre>
@@ -219,9 +219,9 @@ pipe(<span class="code-string">"a bridge in autumn"</span>, n=4, seed=0)[0].save
     </section>
     <section class="release-section shell" aria-labelledby="release-title">
       <div><p class="eyebrow">Weights, code and the evaluation</p><h2 id="release-title">Take a closer look.</h2><p>Weights and the model card are on Hugging Face. Code, examples, evaluation details and checksums are on GitHub.</p></div>
-      <div class="release-links"><a href="https://huggingface.co/UdgamLabs/Chitra-Tiny"><span>Hugging Face</span><strong>Weights &amp; model card <span aria-hidden="true">↗</span></strong></a><a href="https://github.com/UdgamLabs/chitra-tiny/blob/main/docs/EVALUATION.md"><span>Evaluation</span><strong>FID, CLIP &amp; GenEval in detail <span aria-hidden="true">↗</span></strong></a><a href="https://github.com/UdgamLabs/chitra-tiny"><span>GitHub</span><strong>Code &amp; examples <span aria-hidden="true">↗</span></strong></a></div>
+      <div class="release-links"><a href="https://huggingface.co/udgamlabs/Chitra-Tiny"><span>Hugging Face</span><strong>Weights &amp; model card <span aria-hidden="true">↗</span></strong></a><a href="https://github.com/udgamlabs/chitra-tiny/blob/main/docs/EVALUATION.md"><span>Evaluation</span><strong>FID, CLIP &amp; GenEval in detail <span aria-hidden="true">↗</span></strong></a><a href="https://github.com/udgamlabs/chitra-tiny"><span>GitHub</span><strong>Code &amp; examples <span aria-hidden="true">↗</span></strong></a></div>
     </section>
   </main>
-  <footer class="site-footer shell"><div><strong>UDGAM LABS</strong><p>Frontier technology lab</p></div><nav aria-label="Footer navigation"><a href="https://huggingface.co/UdgamLabs/Chitra-Tiny">Model card</a><a href="https://github.com/UdgamLabs/chitra-tiny/blob/main/docs/EVALUATION.md">Evaluation</a><a href="https://www.udgamlabs.com/">The lab</a><a href="#main">Back to top ↑</a></nav><p class="footer-note">Saved model outputs. No inference, tracking or external assets on this page.</p></footer>
+  <footer class="site-footer shell"><div><strong>UDGAM LABS</strong><p>AI research from first principles</p></div><nav aria-label="Footer navigation"><a href="https://huggingface.co/udgamlabs/Chitra-Tiny">Model card</a><a href="https://github.com/udgamlabs/chitra-tiny/blob/main/docs/EVALUATION.md">Evaluation</a><a href="https://www.udgamlabs.com/">The lab</a><a href="#main">Back to top ↑</a></nav><p class="footer-note">Saved model outputs. No inference, tracking or external assets on this page.</p></footer>
 </body>
 </html>

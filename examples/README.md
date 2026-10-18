@@ -1,6 +1,6 @@
 # Examples
 
-Run from the repository root after `pip install -r requirements.txt`. Each script downloads the released weights from [UdgamLabs/Chitra-Tiny](https://huggingface.co/UdgamLabs/Chitra-Tiny) on first use (no login) and writes to `examples/out/`.
+Run from the repository root after `pip install -r requirements.txt`. Each script downloads the released weights from [udgamlabs/Chitra-Tiny](https://huggingface.co/udgamlabs/Chitra-Tiny) on first use (no login) and writes to `examples/out/`.
 
 | Script | Command | Output |
 |---|---|---|

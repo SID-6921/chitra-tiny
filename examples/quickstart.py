@@ -9,7 +9,7 @@ sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), ".."
 from chitra_tiny import ChitraTiny  # noqa: E402
 
 prompt = sys.argv[1] if len(sys.argv) > 1 else "a sailing ship on a calm sea"
-pipe = ChitraTiny.from_pretrained("UdgamLabs/Chitra-Tiny")   # downloads 0.85 GB once, plus the text encoder and decoder
+pipe = ChitraTiny.from_pretrained("udgamlabs/Chitra-Tiny")   # downloads 0.85 GB once, plus the text encoder and decoder
 images = pipe(prompt, n=4, guidance=7, steps=50, seed=0)      # four different pictures from one seed
 
 grid = Image.new("RGB", (512, 512))

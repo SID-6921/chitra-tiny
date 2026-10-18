@@ -1,21 +1,23 @@
-<p align="left"><strong>UDGAM LABS</strong> · A small text-to-image model</p>
+![Chitra Tiny · Udgam Labs](./assets/banner.png)
+
+**UDGAM LABS** · Text-to-image model · 212M parameters
 
 # Chitra Tiny
 
-A 212M-parameter English **text-to-image** model that makes 256×256 pictures from a sentence. Built by **Udgam Labs**, a frontier technology lab. The image model was trained from scratch, on about 4.7 million public-domain and CC0 images. It runs on a laptop: about 3 seconds per image on an Apple-silicon Mac. *Chitra* (चित्र) means "picture".
+A 212M-parameter English **text-to-image** model that makes 256×256 pictures from a sentence. Built by **Udgam Labs**. The image model was trained from scratch, on about 4.7 million public-domain and CC0 images. It runs on a laptop: about 3 seconds per image on an Apple-silicon Mac. *Chitra* (चित्र) means "picture".
 
-**Public release, 12 October 2026:** weights and model card on [Hugging Face](https://huggingface.co/UdgamLabs/Chitra-Tiny), a [visual walkthrough](https://udgamlabs.github.io/chitra-tiny/), and code, examples and checksums in this repository. Apache-2.0.
+**Public release, 12 October 2026:** weights and model card on [Hugging Face](https://huggingface.co/udgamlabs/Chitra-Tiny), a [visual walkthrough](https://udgamlabs.github.io/chitra-tiny/), and code, examples and checksums in this repository. Apache-2.0.
 
 <p align="center"><img src="docs/assets/samples.png" alt="16 Chitra Tiny samples at 256 px, guidance 7, seeds 0-15" width="100%"></p>
 
-<sub>One image per prompt, seeds 0–15, guidance 7, 50 steps. The prompts are listed in the <a href="https://huggingface.co/UdgamLabs/Chitra-Tiny">model card</a>.</sub>
+<sub>One image per prompt, seeds 0–15, guidance 7, 50 steps. The prompts are listed in the <a href="https://huggingface.co/udgamlabs/Chitra-Tiny">model card</a>.</sub>
 
-[Get started](#get-started) · [Examples](#runnable-examples) · [How it works](#how-it-works) · [How good is it](#how-good-is-it) · [Limits](#know-the-limits) · [Files](#files-and-integrity)
+[Get started](#get-started) · [Examples](#runnable-examples) · [How it works](#how-it-works) · [How good is it](#how-good-is-it) · [Limits](#where-it-falls-short) · [Files](#files-and-integrity)
 
 ## Get started
 
 ```bash
-git clone https://github.com/UdgamLabs/chitra-tiny && cd chitra-tiny
+git clone https://github.com/udgamlabs/chitra-tiny && cd chitra-tiny
 pip install -r requirements.txt
 python chitra_tiny.py "a lighthouse on a rocky coast at sunset" --n 4     # writes chitra_0.png ... chitra_3.png
 ```
@@ -26,7 +28,7 @@ The first run downloads the weights (0.85 GB) from Hugging Face, plus the text e
 
 ```python
 from chitra_tiny import ChitraTiny
-pipe = ChitraTiny.from_pretrained("UdgamLabs/Chitra-Tiny")   # or a local folder
+pipe = ChitraTiny.from_pretrained("udgamlabs/Chitra-Tiny")   # or a local folder
 images = pipe("an oil painting of a vase of flowers", n=4, guidance=7, steps=50, seed=0)
 images[0].save("flowers.png")
 ```
@@ -84,7 +86,7 @@ All numbers were measured by us, with the same seeds and settings for every mode
 
 In plain terms: it makes convincing photos, paintings and scenes of the kind it saw often, and its images match their prompts nearly as well as real captioned photos do (CLIP). GenEval tests something harder, composing specific everyday objects, counts, colours and positions, and there it reaches about half of Stable Diffusion 1.5, a model about four times larger and trained on far more images.
 
-## Know the limits
+## Where it falls short
 
 - **Less common everyday objects** (frisbees, toasters, carrots): about 0.33 single-object accuracy on the rarest third of GenEval's objects vs 0.85 on the most common third.
 - **Several objects, counting and positions** ("a cup left of a laptop").
@@ -103,12 +105,12 @@ Its training images over-represent historic, Western and museum imagery; expect 
 | `app.py` | Local web playground (Gradio) |
 | `examples/` | Three runnable scripts |
 | `docs/` | [Evaluation details](docs/EVALUATION.md) and the [visual walkthrough](https://udgamlabs.github.io/chitra-tiny/) (`docs/index.html`) |
-| `SHA256SUMS` | SHA-256 of every file in [UdgamLabs/Chitra-Tiny](https://huggingface.co/UdgamLabs/Chitra-Tiny) except the model card and `.gitattributes` |
+| `SHA256SUMS` | SHA-256 of every file in [udgamlabs/Chitra-Tiny](https://huggingface.co/udgamlabs/Chitra-Tiny) except the model card and `.gitattributes` |
 
 `chitra_tiny.py`, `app.py` and `LICENSE` are byte-identical to the Hugging Face copies. To check a download:
 
 ```bash
-cd Chitra-Tiny && sed 's#UdgamLabs/Chitra-Tiny/##' ../SHA256SUMS | shasum -a 256 -c
+cd Chitra-Tiny && sed 's#udgamlabs/Chitra-Tiny/##' ../SHA256SUMS | shasum -a 256 -c
 ```
 
 ## Licence
@@ -118,8 +120,12 @@ Apache-2.0 for the weights, code and documentation. Chitra Tiny downloads and us
 ```bibtex
 @misc{chitratiny2026,
   title  = {Chitra Tiny: a 212M text-to-image model trained from scratch},
-  author = {UdgamLabs},
+  author = {Udgam Labs},
   year   = {2026},
-  url    = {https://huggingface.co/UdgamLabs/Chitra-Tiny}
+  url    = {https://huggingface.co/udgamlabs/Chitra-Tiny}
 }
 ```
+
+---
+
+**About Udgam Labs.** Udgam Labs is an independent AI research lab. We work from first principles: before we build, we understand why things work, whether we are training a model, fine-tuning one or applying AI to a new problem. Udgam (उद्गम) is Sanskrit for origin. [udgamlabs.com](https://udgamlabs.com)
